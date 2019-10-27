@@ -134,7 +134,7 @@ function addtojson()
 	ob.name=document.getElementById("name").value;
 	ob.desc=document.getElementById("desc").value;
 	ob.price=document.getElementById("price").value;
-	ob.quant=document.getElementById("quant").value;
+	ob.quant=parseInt(document.getElementById("quant").value,10);
 	var f=pid;
 	pid++;
 	products.push(ob);
