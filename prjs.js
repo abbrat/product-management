@@ -231,12 +231,7 @@ function addtolist(f)
 	list.appendChild(pr);
 	unHideAddNewProductLink();
 }
-function del(t)
-{
-	var d=t.parentNode;
-	d.removeChild(t);
-	
-}
+
 function deleteNewProductPanel()
 {
    var childNodes = panel.childNodes;
@@ -253,31 +248,7 @@ function geti(id)
 			return i;
     }
 }
-function rmar(t)
-{
-	var i=0;
-	for(i=0;i<products.length;i++)
-	{
-		if(products[i].id==t){
-			break;
-		}
-	}
-	//console.log(i);
-	var h=0;
-	for(h=0;h<cart.length;i++)
-	{
-		if(cart[h].id==t){
-			break;
-		}
-	}
-products.splice(i,1);
-cart.splice(h,1);
- var jso=JSON.stringify(products);
-     localStorage.setItem("shopper",jso);
-	 
-	 var jso1=JSON.stringify(cart);
-     localStorage.setItem("cart",jso1);
-}	
+ 
 
 function updom(p)
 {
@@ -384,8 +355,24 @@ function upar(t)
 	products[i].price=document.getElementById("price").value;
 	products[i].quant=document.getElementById("quant").value;
 	
+	var k=0;
+	for(k=0;k<cart.length;k++)
+	{
+		if(cart[i].id==t){
+			break;
+		}
+	}
+	
+	cart[i].name=document.getElementById("name").value;
+	cart[i].desc=document.getElementById("desc").value;
+	cart[i].price=document.getElementById("price").value;
+	cart[i].quant=document.getElementById("quant").value;
+	
 	var jso=JSON.stringify(products);
      localStorage.setItem("shopper",jso);
+	 
+	 var jso1=JSON.stringify(cart);
+     localStorage.setItem("cart",jso1);
 }
 
 function paneldom1(tp)
@@ -582,3 +569,36 @@ function addtocart(t)
      localStorage.setItem("cart",jso);
 	
 }
+function del(t)
+{
+	var d=t.parentNode;
+	d.removeChild(t);
+	
+}
+
+
+function rmar(t)
+{
+	var i=0;
+	for(i=0;i<products.length;i++)
+	{
+		if(products[i].id==t){
+			break;
+		}
+	}
+	//console.log(i);
+	var h=0;
+	for(h=0;h<cart.length;i++)
+	{
+		if(cart[h].id==t){
+			break;
+		}
+	}
+products.splice(i,1);
+cart.splice(h,1);
+ var jso=JSON.stringify(products);
+     localStorage.setItem("shopper",jso);
+	 
+	 var jso1=JSON.stringify(cart);
+     localStorage.setItem("cart",jso1);
+}	
