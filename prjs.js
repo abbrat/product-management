@@ -355,7 +355,7 @@ function upar(t)
 	products[i].price=document.getElementById("price").value;
 	products[i].quant=document.getElementById("quant").value;
 	
-	var k=0;
+	var k=-1;
 	for(k=0;k<cart.length;k++)
 	{
 		if(cart[i].id==t){
@@ -366,7 +366,7 @@ function upar(t)
 	cart[i].name=document.getElementById("name").value;
 	cart[i].desc=document.getElementById("desc").value;
 	cart[i].price=document.getElementById("price").value;
-	cart[i].quant=document.getElementById("quant").value;
+	//cart[i].quant=document.getElementById("quant").value;
 	
 	var jso=JSON.stringify(products);
      localStorage.setItem("shopper",jso);
