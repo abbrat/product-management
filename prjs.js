@@ -590,12 +590,24 @@ function addtocart(t)
 	s.name=products[i].name;
 	s.desc=products[i].desc;
 	s.price=products[i].price;
-	s.quant=products[i].quant;
+	s.quant=1;
 	var l=products[i].quant;
 	if(l==0)
 	{
 		alert("ITEM IS OUT OF STOCK");
 		return ;
+	}
+	//alert(cart.length);
+	for(var  u=0;u<cart.length;u++)
+	{
+		if(cart[u].id==t)
+		{
+			cart[u].quant=cart[u].quant+1;
+			var jso=JSON.stringify(cart);
+            localStorage.setItem("cart",jso);
+			 itemQuant(t);
+			return;
+		}
 	}
 	cart.push(s);
 	var jso=JSON.stringify(cart);
