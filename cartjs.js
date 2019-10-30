@@ -1,5 +1,7 @@
-	var list=document.getElementById("list");
-	var d=JSON.parse(localStorage.getItem("cart"));
+var cart=[];
+var total=0;
+var list=document.getElementById("list");
+var d=JSON.parse(localStorage.getItem("cart"));
 for(var i=0;i<d.length;i++)
 {
 	var k=new Object();
@@ -10,10 +12,29 @@ for(var i=0;i<d.length;i++)
 	k.desc=d[i].desc;
 	k.price=d[i].price;
 	k.quant=d[i].quant;
-	
+	total=total+parseInt(k.price);
+	//console.log(k.price);
+	cart.push(k);                           
 	ndom(k);
 	
 }
+console.log(total);
+
+var bill=document.createElement("button");
+bill.setAttribute("class","btn");
+bill.innerHTML="TOTAL    " +total;
+list.appendChild(bill);
+
+var bill1=document.createElement("button");
+bill1.setAttribute("class","btn");
+bill1.innerHTML="CHECK OUT";
+list.appendChild(bill1);
+bill1.addEventListener("click", function(event)
+											{
+											   bil();
+											}
+								 );
+
 
 function ndom(k)
 {
@@ -54,5 +75,30 @@ function ndom(k)
 	pr.appendChild(n);	
 	
 	list.appendChild(pr);
+	
+}
+
+
+function bil()
+{
+	var bill=document.createElement("div");
+	bill.setAttribute("background","color:white");
+	for(var i=0;i<cart.length;i++)
+	{
+		var item=document.createElement("h4");
+		var a=document.createTextNode(cart[i].name+"&nbsp;&nbsp;&nbsp;---&nbsp;&nbsp;&nbsp;"+cart[i].price);
+		item.appendChild(a);
+		bill.appendChild(item);
+	}
+	
+	var item=document.createElement("h4");
+		var a=document.createTextNode("Total"+"                    "+total);
+		item.appendChild(a);
+		bill.appendChild(item);
+		
+		
+		
+		list.appendChild(bill);
+	
 	
 }
