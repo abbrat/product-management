@@ -22,19 +22,13 @@ console.log(total);
 
 var bill=document.createElement("button");
 bill.setAttribute("class","btn");
-bill.innerHTML="TOTAL    " +total;
+bill.innerHTML="TOTAL    ";
 list.appendChild(bill);
 
 var bill1=document.createElement("button");
 bill1.setAttribute("class","btn");
-bill1.innerHTML="CHECK OUT";
+bill1.innerHTML=total;
 list.appendChild(bill1);
-bill1.addEventListener("click", function(event)
-											{
-											   bil();
-											}
-								 );
-
 
 function ndom(k)
 {
@@ -79,26 +73,3 @@ function ndom(k)
 }
 
 
-function bil()
-{
-	var bill=document.createElement("div");
-	bill.setAttribute("background","color:white");
-	for(var i=0;i<cart.length;i++)
-	{
-		var item=document.createElement("h4");
-		var a=document.createTextNode(cart[i].name+"&nbsp;&nbsp;&nbsp;---&nbsp;&nbsp;&nbsp;"+cart[i].price);
-		item.appendChild(a);
-		bill.appendChild(item);
-	}
-	
-	var item=document.createElement("h4");
-		var a=document.createTextNode("Total"+"                    "+total);
-		item.appendChild(a);
-		bill.appendChild(item);
-		
-		
-		
-		list.appendChild(bill);
-	
-	
-}
