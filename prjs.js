@@ -132,9 +132,25 @@ function addtojson()
 	var ob= new Object();
 	ob.id=pid;
 	ob.name=document.getElementById("name").value;
+	if(ob.name.length==0)
+	{unHideAddNewProductLink();
+      alert("Name cant be left empty");
+		return;}
 	ob.desc=document.getElementById("desc").value;
+	if(ob.desc.length==0)
+	{unHideAddNewProductLink();
+      alert("desc cant be left empty");
+		return;}
 	ob.price=document.getElementById("price").value;
+	if(ob.price.length==0)
+	{unHideAddNewProductLink();
+      alert("price cant be left empty");
+		return;}
 	ob.quant=parseInt(document.getElementById("quant").value,10);
+	if(ob.price.length==0)
+	{unHideAddNewProductLink();
+      alert("quant cant be left empty");
+		return;}
 	var f=pid;
 	pid++;
 	products.push(ob);
@@ -259,6 +275,10 @@ function updom(p)
 	
 	var n=document.createElement("h4");
 	var d=document.getElementById("name").value;
+	if(d.length==0)
+	{
+		return ;
+	}
 	var c=document.createTextNode(d);
 	n.appendChild(c);
 	
