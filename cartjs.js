@@ -13,7 +13,7 @@ for(var i=0;i<d.length;i++)
 	k.price=d[i].price;
 	k.quant=d[i].quant;
 	var qua=d[i].quant;
-	total=total+(parseInt(k.price)*qua);
+	total=total+(parseInt(k.price)*parseInt(qua));
 	//console.log(k.price);
 	cart.push(k);                           
 	ndom(k);

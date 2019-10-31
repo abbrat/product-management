@@ -216,8 +216,7 @@ function addtolist(f)
 											var targetParent = event.target.parentNode.parentNode;
 										   var i= parseInt(targetParent.id); 
 										   
-										   del(targetParent);
-										   rmar(i);										   
+										   rmar(i,targetParent);										   
 										   
 											}
 								 );	
@@ -227,7 +226,6 @@ function addtolist(f)
 											{
 												var targetParent = event.target.parentNode.parentNode;
 										   var i= parseInt(targetParent.id); 
-										       var t=geti(i);
 											   paneldom1(targetParent);
 												//updom(targetParent);
 											}
@@ -256,14 +254,7 @@ function deleteNewProductPanel()
      panel.removeChild(childNodes[i]);
    }
 }
-function geti(id) 
-{
-    for (var i = 0; i < products.length; i++) 
-	{
-        if (products[i].Id == id) 
-			return i;
-    }
-}
+
  
 
 function updom(p)
@@ -323,9 +314,7 @@ function updom(p)
 											{
 											var targetParent = event.target.parentNode.parentNode;
 										   var i= parseInt(targetParent.id); 
-										   var t=geti(i);
-										   del(targetParent);
-										   rmar(i);										   
+										   rmar(i,targetParent);										   
 										   
 											}
 								 );	
@@ -336,7 +325,6 @@ function updom(p)
 												
 												var targetParent = event.target.parentNode.parentNode;
 										   var i= parseInt(targetParent.id); 
-										       var t=geti(i);
 											   paneldom1(targetParent);
 												
 											}
@@ -377,11 +365,11 @@ function upar(t,tp)
       alert("Description cant be left empty");
 		return;}
 	products[i].price=document.getElementById("price").value;
-	if(products[i].price.length==0)
+	if(products[i].price.length==0 && parseInt(document.getElementById("price").value)==NaN)
 	{unHideAddNewProductLink();
       alert("price cant be left empty");
 		return;}
-	products[i].quant=document.getElementById("quant").value;
+	products[i].quant=parseInt(document.getElementById("quant").value);
 	if(products[i].quant.length==0)
 	{unHideAddNewProductLink();
       alert("Quantity cant be left empty");
@@ -479,7 +467,7 @@ function paneldom1(tp)
 											{
 											
 												var i= parseInt(tp.id); 
-										       var t=geti(i);
+										       
 											   console.log(i);
 												upar(i,tp);
 												deleteNewProductPanel();
@@ -546,9 +534,7 @@ function ndom(k)
 											{
 											var targetParent = event.target.parentNode.parentNode;
 										   var i= parseInt(targetParent.id); 
-										   
-										   del(targetParent);
-										   rmar(i);										   
+										   rmar(i,targetParent);										   
 										   
 											}
 								 );	
@@ -558,7 +544,7 @@ function ndom(k)
 											{
 												var targetParent = event.target.parentNode.parentNode;
 										   var i= parseInt(targetParent.id); 
-										       var t=geti(i);
+										      
 											   paneldom1(targetParent);
 												//updom(targetParent);
 											}
@@ -649,36 +635,3 @@ function addtocart(t)
 	
 	 itemQuant(t);
 }
-function del(t)
-{
-	var d=t.parentNode;
-	d.removeChild(t);
-	
-}
-
-
-function rmar(t)
-{
-	var i=0;
-	for(i=0;i<products.length;i++)
-	{
-		if(products[i].id==t){
-			break;
-		}
-	}
-	//console.log(i);
-	var h=0;
-	for(h=0;h<cart.length;i++)
-	{
-		if(cart[h].id==t){
-			break;
-		}
-	}
-products.splice(i,1);
-cart.splice(h,1);
- var jso=JSON.stringify(products);
-     localStorage.setItem("shopper",jso);
-	 
-	 var jso1=JSON.stringify(cart);
-     localStorage.setItem("cart",jso1);
-}	
