@@ -275,10 +275,6 @@ function updom(p)
 	
 	var n=document.createElement("h4");
 	var d=document.getElementById("name").value;
-	if(d.length==0)
-	{
-		return ;
-	}
 	var c=document.createTextNode(d);
 	n.appendChild(c);
 	
@@ -360,7 +356,7 @@ function updom(p)
 	
 	unHideAddNewProductLink();
 }
-function upar(t)
+function upar(t,tp)
 {
 	var i=0;
 	for(var i=0;i<products.length;i++)
@@ -371,10 +367,25 @@ function upar(t)
 	}
 	console.log(products[t]+"   "+t);
 	products[i].name=document.getElementById("name").value;
+	if(products[i].name.length==0)
+	{unHideAddNewProductLink();
+      alert("Name cant be left empty");
+		return;}
 	products[i].desc=document.getElementById("desc").value;
+	if(products[i].desc.length==0)
+	{unHideAddNewProductLink();
+      alert("Description cant be left empty");
+		return;}
 	products[i].price=document.getElementById("price").value;
+	if(products[i].price.length==0)
+	{unHideAddNewProductLink();
+      alert("price cant be left empty");
+		return;}
 	products[i].quant=document.getElementById("quant").value;
-	
+	if(products[i].quant.length==0)
+	{unHideAddNewProductLink();
+      alert("Quantity cant be left empty");
+		return;}
 	var k=-1;
 	for(k=0;k<cart.length;k++)
 	{
@@ -393,6 +404,8 @@ function upar(t)
 	 
 	 var jso1=JSON.stringify(cart);
      localStorage.setItem("cart",jso1);
+	 
+	 updom(tp);
 }
 
 function paneldom1(tp)
@@ -464,11 +477,11 @@ function paneldom1(tp)
 		
     btnAddButton.addEventListener("click", function(event)
 											{
-												updom(tp);
+											
 												var i= parseInt(tp.id); 
 										       var t=geti(i);
 											   console.log(i);
-												upar(i);
+												upar(i,tp);
 												deleteNewProductPanel();
 												
 											}
