@@ -64,7 +64,46 @@ function ndom(k)
 	var c13=document.createTextNode(y+"             ");
 	n.appendChild(c13);
 	
+	var delet = document.createElement("button");
+	delet.setAttribute("id","delet");
+	delet.setAttribute("class","vsbtn");
+	delet.innerHTML = "Remove";
 	
+	var sp=document.createTextNode("\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0");
+	
+	
+	
+	
+	n.appendChild(sp);n.appendChild(sp);n.appendChild(sp);n.appendChild(sp);n.appendChild(sp);n.appendChild(sp);n.appendChild(sp);n.appendChild(sp);n.appendChild(sp);
+	n.appendChild(sp);n.appendChild(sp);n.appendChild(sp);n.appendChild(sp);n.appendChild(sp);n.appendChild(sp);n.appendChild(sp);n.appendChild(sp);n.appendChild(sp);
+	n.appendChild(sp);n.appendChild(sp);n.appendChild(sp);n.appendChild(sp);n.appendChild(sp);n.appendChild(sp);n.appendChild(sp);n.appendChild(sp);n.appendChild(sp);
+
+	
+	
+	n.appendChild(delet);
+	delet.addEventListener("click", function(event)
+											{
+											var tp= event.target.parentNode.parentNode;
+										    //console.log(tp);
+											rmar(parseInt(tp.id));
+											tp.parentNode.removeChild(tp);
+											}
+								 );	
+	var plus = document.createElement("button");
+	plus.setAttribute("id","add");
+	plus.setAttribute("class","vsbtn");
+	plus.innerHTML = "+";
+	n.appendChild(plus);
+
+
+	
+	var minus = document.createElement("button");
+	minus.setAttribute("id","minus");
+	minus.setAttribute("class","vsbtn");
+	minus.innerHTML = "-";
+	n.appendChild(minus);
+
+
 	
 	
 	pr.appendChild(n);	
@@ -72,5 +111,16 @@ function ndom(k)
 	list.appendChild(pr);
 	
 }
-
+function rmar(k)
+{
+	var i=0;
+	for(i=0;i<cart.length;i++)
+	{
+		if(cart[i].id==k)
+			break;
+	}
+	cart.splice(i,1);
+	var jso=JSON.stringify(cart);
+     localStorage.setItem("cart",jso);
+}
 
