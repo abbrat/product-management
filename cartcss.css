@@ -1,0 +1,55 @@
+.btn{
+left:0;
+width:25%;
+background:cadetblue;
+border:2px solid  green;
+color:black;
+padding:5px;
+font-size:18px;
+cursor:pointer;
+margin:12px; 
+border-radius:9px;
+}
+.sbtn{
+left:0;
+width:15%;
+background:cadetblue;
+border:2px solid  teal;
+color:black;
+padding:5px;
+font-size:16px;
+cursor:pointer;
+margin:12px; 
+border-radius:9px;
+}
+
+.vsbtn{
+left:0;
+width:10%;
+background:cadetblue;
+border:5px solid  teal;
+color:black;
+padding:5px;
+font-size:20px;
+cursor:pointer;
+margin:10px; 
+border-radius:9px;
+}
+
+body{
+background:lavender;
+}
+h3{
+font-family:Castellar;
+}
+
+.item{
+width:100%;
+background:#f0f0f0;
+border:2px solid  li;
+border-radius:9px;	
+	
+}
+
+
+
