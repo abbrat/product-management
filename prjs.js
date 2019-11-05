@@ -375,14 +375,19 @@ function upar(t,tp)
       alert("Quantity cant be left empty");
 		return;}
 	var k=-1;
+	var f=-1;
 	for(k=0;k<cart.length;k++)
 	{
 		if(cart[k].id==t){
+			f=0;
 			break;
 		}
 	}
-	if(k>-1)
+	console.log(k);
+	if(f==-1)
 	{
+		var jso=JSON.stringify(products);
+     localStorage.setItem("shopper",jso);
 		updom(tp);
 		return;
 	}
