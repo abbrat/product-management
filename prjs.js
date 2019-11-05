@@ -377,14 +377,18 @@ function upar(t,tp)
 	var k=-1;
 	for(k=0;k<cart.length;k++)
 	{
-		if(cart[i].id==t){
+		if(cart[k].id==t){
 			break;
 		}
 	}
-	
-	cart[i].name=document.getElementById("name").value;
-	cart[i].desc=document.getElementById("desc").value;
-	cart[i].price=document.getElementById("price").value;
+	if(k>-1)
+	{
+		updom(tp);
+		return;
+	}
+	cart[k].name=document.getElementById("name").value;
+	cart[k].desc=document.getElementById("desc").value;
+	cart[k].price=document.getElementById("price").value;
 	//cart[i].quant=document.getElementById("quant").value;
 	
 	var jso=JSON.stringify(products);
