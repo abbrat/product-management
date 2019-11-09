@@ -8,6 +8,7 @@ function del(t)
 
 function rmar(t,targetParent)
 {
+	alert("This product will be deleted from List");
 	var i=0;
 	for(i=0;i<products.length;i++)
 	{

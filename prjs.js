@@ -640,8 +640,9 @@ function addtocart(t)
 	cart.push(s);
 	var jso=JSON.stringify(cart);
      localStorage.setItem("cart",jso);
-	 alert(s.name+" added to cart");
+	
 	
 	 itemQuant(t);
+	  alert(s.name+" added to cart");
 }
 

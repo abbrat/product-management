@@ -1,0 +1,39 @@
+<html>
+	<head>	
+	    <link rel="stylesheet" type="text/css" href="cartcss.css">
+		<title>SHOPPERS CART</title>
+	</head>
+	<style>
+	div{
+	border:2px solid cadetblue;
+	border-radius:8px;
+	}
+	</style>
+	
+	<body>
+	<button >post</button>
+	<input type="button">get</input>
+      <script>
+
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange=function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("demo").innerHTML = this.responseText;
+    }
+  };
+  
+function loadDoc() {
+  xhttp.open("GET", "/getURL");
+  xhttp.setRequestHeader("Content-Type", "application/json");
+  xhttp.send();
+}
+
+function sendData() {
+  xhttp.open("POST", "/postURL");
+  xhttp.setRequestHeader("Content-Type", "application/json");
+  xhttp.send(JSON.stringify({name: 'ABC' , userId : '12345'}));
+}
+</script>	
+	</body>
+	<script src="cartjs.js" type="text/javascript"></script>
+</html>
