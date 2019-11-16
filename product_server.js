@@ -53,11 +53,11 @@ app.post("/addProduct",function(req,res){
 
 });
 
-/*app.get("/pp",function(req,res){
+app.get("/updateProduct",function(req,res){
 	var data=req.query;
 	console.log(data);
 	res.send("hiiii");
-});*/
+});
 app.get("/getProducts",function(req,res){
 	
 });
