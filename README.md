@@ -25,3 +25,7 @@ This is a functional product management portal.
 - JSON
 - Local Storage
 
+#future 
+this project uses local storage and have to 
+shift it from.there to using local server and 
+file system
